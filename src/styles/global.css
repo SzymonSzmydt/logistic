@@ -1,0 +1,72 @@
+:root {
+    --bg-color: #f3f6f7;
+    --content-color: #ffffff;
+
+    --primary-color: #33617c;
+
+    --accent-color: #62b6cb;
+
+    --dark-color: #072233;
+    --white-color: #ffffff;
+
+    --radius: 4px;
+    --shadow: 0px 0px 14px -3px rgba(0, 0, 0, 0.75);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+body {
+    width: 100%;
+    height: 100svh;
+
+    background-color: var(--bg-color);
+}
+
+button {
+    cursor: pointer;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    padding: 0.5rem 2rem;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+input[type="number"] {
+    display: block;
+    height: 3rem;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    background-color: var(--white-color);
+    color: var(--light-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+input:focus-visible {
+    outline: none;
+}
