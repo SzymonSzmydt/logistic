@@ -4,8 +4,6 @@ import { Dimensions } from "../inputPanel/InputPanel";
 const TablePanel = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
   const valueOfOneLayer = getLayerValue(productL, productS, paletteL, paletteS);
 
-  console.log(valueOfOneLayer);
-
   return (
     <table className='wrapper'>
       <thead>
@@ -18,7 +16,7 @@ const TablePanel = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
       <tbody>
         <tr>
           <th>Opakowań na warstwie</th>
-          <td> {valueOfOneLayer?.value} </td>
+          <td> {valueOfOneLayer?.total} </td>
           <td> op. </td>
         </tr>
         <tr>

@@ -9,18 +9,15 @@
 }
 
 .palette {
-    background-color: var(--dark-color);
-    border: 1px solid yellow;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--semi-color);
     box-sizing: content-box;
 }
 
 .product {
-    background-color: var(--accent-color);
-    display: inline-block;
-    border: 1px solid yellow;
-}
-
-.box {
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--product-color);
+    border: 1px solid var(--dark-color);
 }

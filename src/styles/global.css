@@ -3,11 +3,14 @@
     --content-color: #ffffff;
 
     --primary-color: #33617c;
+    --semi-color: #33617c57;
 
     --accent-color: #62b6cb;
 
     --dark-color: #072233;
     --white-color: #ffffff;
+
+    --product-color: #62b6cbab;
 
     --radius: 4px;
     --shadow: 0px 0px 14px -3px rgba(0, 0, 0, 0.75);
@@ -101,8 +104,7 @@ table td:nth-child(1) {
 }
 
 table tr {
-
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--semi-color);
 }
 
 .flex {
