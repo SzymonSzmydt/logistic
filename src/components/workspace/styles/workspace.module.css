@@ -1,0 +1,26 @@
+.wrapper {
+    composes: wrapper from global;
+    grid-column: 2/3;
+    grid-row: 1/3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.palette {
+    background-color: var(--dark-color);
+    border: 1px solid yellow;
+    box-sizing: content-box;
+}
+
+.product {
+    background-color: var(--accent-color);
+    display: inline-block;
+    border: 1px solid yellow;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+}

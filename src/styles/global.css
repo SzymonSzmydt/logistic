@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #f3f6f7;
+    --bg-color: #ecf6fa;
     --content-color: #ffffff;
 
     --primary-color: #33617c;
@@ -102,7 +102,7 @@ table td:nth-child(1) {
 
 table tr {
 
-    border-bottom: 1px solid var(--bg-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 .flex {

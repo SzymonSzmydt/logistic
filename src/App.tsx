@@ -1,13 +1,14 @@
 import { useState } from "react";
 import InputPanel from "./components/inputPanel/InputPanel";
 import TablePanel from "./components/tablePanel/TablePanel";
-import style from './styles/app.module.css'
+import Workspace from "./components/workspace/Workspace";
+import style from "./styles/app.module.css";
 
 const initialState = {
-  productW: 0,
-  productH: 0,
-  palleteW: 0,
-  palleteH: 0,
+  productL: 400,
+  productS: 300,
+  paletteL: 1200,
+  paletteS: 800,
 };
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
   return (
     <main className={style.main}>
       <InputPanel setDimensions={setDimensions} />
-      <TablePanel {...dimensions}/>
+      <TablePanel {...dimensions} />
+      <Workspace {...dimensions} />
     </main>
   );
 }

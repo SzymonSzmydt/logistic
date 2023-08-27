@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-Hook-form";
 import style from "./styles/input.module.css";
 
 export interface Dimensions {
-  productW: number;
-  productH: number;
-  palleteW: number;
-  palleteH: number;
+  productL: number;
+  productS: number;
+  paletteL: number;
+  paletteS: number;
 }
 
 interface InputProps {
@@ -28,13 +28,14 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Opakowanie - długość</label>
         <input
           type='number'
-          {...register("productH", { required: true, min: 1, max: 1000 })}
-          aria-invalid={errors.productW ? "true" : "false"}
+          {...register("productL", { required: true, min: 1, max: 1000 })}
+          aria-invalid={errors.productL ? "true" : "false"}
         />
+
         <label>Opakowanie - szerokość</label>
         <input
           type='number'
-          {...register("productW", {
+          {...register("productS", {
             required: {
               value: true,
               message: "To pole jest wymagane!",
@@ -48,22 +49,23 @@ const InputPanel = ({ setDimensions }: InputProps) => {
               message: "Wymagana wartość w przedziale między 1 - 1000",
             },
           })}
-          aria-invalid={errors.productW ? "true" : "false"}
+          aria-invalid={errors.productS ? "true" : "false"}
         />
-        <p role='error'> {errors?.productW?.message} </p>
+        <p role='error'> {errors?.productS?.message} </p>
       </div>
-      <div className={style.pallete}>
+
+      <div className={style.palette}>
         <label>Paleta - długość</label>
         <input
           type='number'
-          {...register("palleteH", { required: true, min: 500, max: 2000 })}
-          aria-invalid={errors.productW ? "true" : "false"}
+          {...register("paletteL", { required: true, min: 500, max: 2000 })}
+          aria-invalid={errors.paletteL ? "true" : "false"}
         />
         <label>Paleta - szerokość</label>
         <input
           type='number'
-          {...register("palleteW", { required: true, min: 500, max: 2000 })}
-          aria-invalid={errors.productW ? "true" : "false"}
+          {...register("paletteS", { required: true, min: 500, max: 2000 })}
+          aria-invalid={errors.paletteS ? "true" : "false"}
         />
       </div>
 

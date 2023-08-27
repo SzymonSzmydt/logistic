@@ -1,8 +1,11 @@
 import { getLayerValue } from "../../lib/hooks/valueOfOneLayer";
 import { Dimensions } from "../inputPanel/InputPanel";
 
-const TablePanel = ({ productW, productH, palleteW, palleteH }: Dimensions) => {
-  const valueOfOneLayer = getLayerValue(productW, productH, palleteW, palleteH);
+const TablePanel = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
+  const valueOfOneLayer = getLayerValue(productL, productS, paletteL, paletteS);
+
+  console.log(valueOfOneLayer);
+
   return (
     <table className='wrapper'>
       <thead>
@@ -15,7 +18,7 @@ const TablePanel = ({ productW, productH, palleteW, palleteH }: Dimensions) => {
       <tbody>
         <tr>
           <th>Opakowań na warstwie</th>
-          <td> {valueOfOneLayer} </td>
+          <td> {valueOfOneLayer?.value} </td>
           <td> op. </td>
         </tr>
         <tr>
