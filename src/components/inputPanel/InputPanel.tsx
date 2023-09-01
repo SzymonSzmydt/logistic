@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { SubmitHandler, useForm } from "react-Hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import style from "./styles/input.module.css";
 
 export interface Dimensions {
@@ -28,9 +28,10 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Opakowanie - długość</label>
         <input
           type='number'
-          {...register("productL", { required: true, min: 1, max: 1000 })}
+          {...register("productL", { required: true, min: 1, max: 800 })}
           aria-invalid={errors.productL ? "true" : "false"}
         />
+        <p role='error'> {errors?.productL?.message} </p>
 
         <label>Opakowanie - szerokość</label>
         <input
@@ -45,7 +46,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
               message: "Wartość musi być większa równa 1!",
             },
             max: {
-              value: 1000,
+              value: 800,
               message: "Wymagana wartość w przedziale między 1 - 1000",
             },
           })}
@@ -61,6 +62,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
           {...register("paletteL", { required: true, min: 500, max: 2000 })}
           aria-invalid={errors.paletteL ? "true" : "false"}
         />
+
         <label>Paleta - szerokość</label>
         <input
           type='number'

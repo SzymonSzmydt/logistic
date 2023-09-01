@@ -6,8 +6,7 @@ type Style = {
 };
 
 type Content = {
-  quantity: number;
-  boxStyle: Style;
+  quantity: number[];
   productStyle: Style;
 };
 

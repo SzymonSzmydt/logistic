@@ -3,12 +3,7 @@ import { Dimensions } from "../inputPanel/InputPanel";
 import style from "./styles/workspace.module.css";
 
 const Workspace = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
-  const { content, total } = getLayerValue(
-    productL,
-    productS,
-    paletteL,
-    paletteS
-  );
+  const { content } = getLayerValue(productL, productS, paletteL, paletteS);
 
   const paletteStyle = {
     width: `${paletteL / 50}rem`,
@@ -20,16 +15,14 @@ const Workspace = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
       <div className={style.palette} style={paletteStyle}>
         {Array.isArray(content)
           ? content.map((sector, i) => (
-              <div key={i} className={style.box} style={sector.boxStyle}>
-                {Array.from({ length: sector.quantity }, (_, i) => i).map(
-                  (key) => (
-                    <div
-                      key={key}
-                      className={style.product}
-                      style={sector.productStyle}
-                    />
-                  )
-                )}
+              <div key={i} className={style.box}>
+                {sector.quantity.map((key) => (
+                  <div
+                    key={key}
+                    className={style.product}
+                    style={sector.productStyle}
+                  />
+                ))}
               </div>
             ))
           : false}
