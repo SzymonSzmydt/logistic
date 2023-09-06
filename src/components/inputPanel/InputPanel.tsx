@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { initialState } from "../../App";
 import style from "./styles/input.module.css";
 
 export interface Dimensions {
@@ -28,6 +29,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Opakowanie - długość</label>
         <input
           type='number'
+          placeholder={`${initialState.productL}`}
           {...register("productL", { required: true, min: 1, max: 800 })}
           aria-invalid={errors.productL ? "true" : "false"}
         />
@@ -36,6 +38,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Opakowanie - szerokość</label>
         <input
           type='number'
+          placeholder={`${initialState.productS}`}
           {...register("productS", {
             required: {
               value: true,
@@ -59,6 +62,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Paleta - długość</label>
         <input
           type='number'
+          placeholder={`${initialState.paletteL}`}
           {...register("paletteL", { required: true, min: 500, max: 2000 })}
           aria-invalid={errors.paletteL ? "true" : "false"}
         />
@@ -66,6 +70,7 @@ const InputPanel = ({ setDimensions }: InputProps) => {
         <label>Paleta - szerokość</label>
         <input
           type='number'
+          placeholder={`${initialState.paletteS}`}
           {...register("paletteS", { required: true, min: 500, max: 2000 })}
           aria-invalid={errors.paletteS ? "true" : "false"}
         />

@@ -4,7 +4,7 @@ import TablePanel from "./components/tablePanel/TablePanel";
 import Workspace from "./components/workspace/Workspace";
 import style from "./styles/app.module.css";
 
-const initialState = {
+export const initialState = {
   productL: 400,
   productS: 300,
   paletteL: 1200,

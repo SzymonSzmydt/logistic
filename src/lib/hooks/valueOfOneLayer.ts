@@ -1,11 +1,9 @@
-import { LayerType } from "../types/workspace";
-
-const variant = (
+const sideArea = (
   productL: number,
   productS: number,
   paletteL: number,
   paletteS: number
-): LayerType => {
+) => {
   const productStyleL = {
     width: `${productS / 50}rem`,
     height: `${productL / 50}rem`,
@@ -15,40 +13,65 @@ const variant = (
     height: `${productS / 50}rem`,
   };
 
-  if (productL > 0 && productS > 0 && paletteL > 0 && paletteS > 0) {
-    const variant1a = paletteL / productL;
-    const variant1b = paletteS / productS;
-
+  const todoA = () => {
+    const stepI = Math.floor(paletteL / productS);
+    const stepII = Math.floor(paletteS / productL);
+    console.log("stepI: ", stepI);
+    console.log("stepII: ", stepII);
     return {
-      total: variant1a * variant1b,
+      total: stepI * stepII,
       content: [
         {
-          quantity: Array.from(
-            { length: Math.floor(variant1a * variant1b) },
-            (_, i) => i
-          ),
-          productStyle: productStyleL,
+          quantity: stepI,
+          box: productStyleL,
         },
         {
-          quantity: Array.from({ length: Math.floor(variant1a) }, (_, i) => i),
-          productStyle: productStyleS,
+          quantity: stepI,
+          box: productStyleL,
         },
       ],
     };
-  }
-  return {
-    total: 0,
-    content: [
-      {
-        quantity: [],
-        productStyle: productStyleS,
-      },
-      {
-        quantity: [],
-        productStyle: productStyleL,
-      },
-    ],
   };
+
+  const todoB = () => {
+    const stepI = Math.floor(paletteL / productS);
+    const stepII = Math.floor(paletteL / productL);
+
+    return {
+      total: stepI + stepII,
+      content: [
+        {
+          quantity: stepI,
+          box: productStyleL,
+        },
+        {
+          quantity: stepII,
+          box: productStyleS,
+        },
+      ],
+    };
+  };
+
+  const todoC = () => {
+    const stepI = Math.floor(paletteL / productS);
+    const stepII = Math.floor(paletteS / productL);
+
+    return {
+      total: stepI * stepII,
+      content: [
+        {
+          quantity: stepI,
+          box: productStyleL,
+        },
+        {
+          quantity: stepI,
+          box: productStyleL,
+        },
+      ],
+    };
+  };
+
+  return todoC();
 };
 
 export const getLayerValue = (
@@ -56,12 +79,24 @@ export const getLayerValue = (
   productS: number,
   paletteL: number,
   paletteS: number
-): LayerType => {
-  const variantA = variant(productL, productS, paletteL, paletteS);
-  const variantB = variant(productS, productL, paletteL, paletteS);
+) => {
+  if (productL > 0 && productS > 0 && paletteL > 0 && paletteS > 0) {
+    const total =
+      Math.floor(paletteL / productL) * Math.floor(paletteS / productS);
 
-  if (variantA.total > variantB.total) {
-    return variantA;
+    return sideArea(productL, productS, paletteL, paletteS);
   }
-  return variantB;
+  return {
+    total: 0,
+    content: [
+      {
+        quantity: 0,
+        box: {},
+      },
+      {
+        quantity: 0,
+        box: {},
+      },
+    ],
+  };
 };

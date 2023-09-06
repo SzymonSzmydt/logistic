@@ -1,17 +1,18 @@
 :root {
-    --bg-color: #0f172a;
-    --content-color: #020617;
+    --bg-color: #020617;
+    --content-color: #0f172a;
 
     --primary-color: #3B4665;
     --semi-color: #33617c57;
     --accent-color: #62b6cb;
 
-    --text-color: #94a3b8;
+    --text-color: #c7d4f0;
 
     --dark-color: #072233;
     --white-color: #ffffff;
 
     --product-color: #62b6cbab;
+    --pallete-color: rgb(255, 187, 0);
 
     --radius: 4px;
     --shadow: 0px 0px 14px -3px rgba(0, 0, 0, 0.75);

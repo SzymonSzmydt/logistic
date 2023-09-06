@@ -5,9 +5,9 @@ type Style = {
   maxHeight?: string;
 };
 
-type Content = {
-  quantity: number[];
-  productStyle: Style;
+export type Content = {
+  quantity: number;
+  box: Style;
 };
 
 export interface LayerType {

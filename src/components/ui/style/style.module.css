@@ -1,0 +1,12 @@
+.palette {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--pallete-color);
+    box-sizing: content-box;
+}
+
+.product {
+    display: inline-block;
+    background-color: var(--product-color);
+    border: 1px solid var(--dark-color);
+}
