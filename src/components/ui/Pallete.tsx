@@ -13,7 +13,7 @@ interface PaletteProps {
 
 const Pallete = ({ paletteStyle, content }: PaletteProps) => {
   return (
-    <section className={style.pallete} style={paletteStyle}>
+    <section className={style.palette} style={paletteStyle}>
       {Array.isArray(content)
         ? content.map((sector, i) => (
             <div key={i}>

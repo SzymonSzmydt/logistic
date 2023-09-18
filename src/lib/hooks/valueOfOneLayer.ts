@@ -1,102 +1,36 @@
-const sideArea = (
-  productL: number,
-  productS: number,
-  paletteL: number,
-  paletteS: number
-) => {
-  const productStyleL = {
-    width: `${productS / 50}rem`,
-    height: `${productL / 50}rem`,
-  };
-  const productStyleS = {
-    width: `${productL / 50}rem`,
-    height: `${productS / 50}rem`,
-  };
-
-  const todoA = () => {
-    const stepI = Math.floor(paletteL / productS);
-    const stepII = Math.floor(paletteS / productL);
-    console.log("stepI: ", stepI);
-    console.log("stepII: ", stepII);
-    return {
-      total: stepI * stepII,
-      content: [
-        {
-          quantity: stepI,
-          box: productStyleL,
-        },
-        {
-          quantity: stepI,
-          box: productStyleL,
-        },
-      ],
-    };
-  };
-
-  const todoB = () => {
-    const stepI = Math.floor(paletteL / productS);
-    const stepII = Math.floor(paletteL / productL);
-
-    return {
-      total: stepI + stepII,
-      content: [
-        {
-          quantity: stepI,
-          box: productStyleL,
-        },
-        {
-          quantity: stepII,
-          box: productStyleS,
-        },
-      ],
-    };
-  };
-
-  const todoC = () => {
-    const stepI = Math.floor(paletteL / productS);
-    const stepII = Math.floor(paletteS / productL);
-
-    return {
-      total: stepI * stepII,
-      content: [
-        {
-          quantity: stepI,
-          box: productStyleL,
-        },
-        {
-          quantity: stepI,
-          box: productStyleL,
-        },
-      ],
-    };
-  };
-
-  return todoC();
+type TArea = {
+  sideA: number;
+  sideB: number;
 };
 
-export const getLayerValue = (
-  productL: number,
-  productS: number,
-  paletteL: number,
-  paletteS: number
-) => {
-  if (productL > 0 && productS > 0 && paletteL > 0 && paletteS > 0) {
-    const total =
-      Math.floor(paletteL / productL) * Math.floor(paletteS / productS);
+const howManyOccures = (area: number, opA: number, opB: number): TArea => {
+  const occ = Math.floor(area / opA);
+  const rest = area - occ * opA;
 
-    return sideArea(productL, productS, paletteL, paletteS);
+  if (rest > opB) {
+    const area = howManyOccures(rest, opB, opA);
+    return { sideA: occ, sideB: area.sideA };
   }
-  return {
-    total: 0,
-    content: [
-      {
-        quantity: 0,
-        box: {},
-      },
-      {
-        quantity: 0,
-        box: {},
-      },
-    ],
+  return { sideA: occ, sideB: rest };
+};
+
+export const sideArea = (
+  prodL: number,
+  prodS: number,
+  palL: number,
+  palS: number
+) => {
+  const productStyleL = {
+    width: `${prodS / 50}rem`,
+    height: `${prodL / 50}rem`,
   };
+  const productStyleS = {
+    width: `${prodL / 50}rem`,
+    height: `${prodS / 50}rem`,
+  };
+  const longSide = howManyOccures(palL, prodL, prodS);
+  const shortSide = howManyOccures(palS, prodS, prodL);
+
+  console.log("longSide: ", longSide);
+  console.log("shortSide: ", shortSide);
 };

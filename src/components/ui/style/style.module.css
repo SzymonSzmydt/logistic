@@ -1,8 +1,9 @@
 .palette {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     background-color: var(--pallete-color);
-    box-sizing: content-box;
 }
 
 .product {

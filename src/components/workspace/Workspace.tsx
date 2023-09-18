@@ -1,10 +1,9 @@
-import { getLayerValue } from "../../lib/hooks/valueOfOneLayer";
+import { sideArea } from "../../lib/hooks/valueOfOneLayer";
 import { Dimensions } from "../inputPanel/InputPanel";
-import Pallete from "../ui/Pallete";
 import style from "./styles/workspace.module.css";
 
 const Workspace = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
-  const { content } = getLayerValue(productL, productS, paletteL, paletteS);
+  sideArea(productL, productS, paletteL, paletteS);
 
   const paletteStyle = {
     width: `${paletteL / 50}rem`,
@@ -13,7 +12,7 @@ const Workspace = ({ productL, productS, paletteL, paletteS }: Dimensions) => {
 
   return (
     <section className={style.wrapper}>
-      <Pallete paletteStyle={paletteStyle} content={content} />
+      {/* <Pallete paletteStyle={paletteStyle} /> */}
     </section>
   );
 };
